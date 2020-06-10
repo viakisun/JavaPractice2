@@ -2,8 +2,8 @@
 public class JavaPractice {
 
 	public static void main(String[] args) {
-		//runTemperatureConverter();
-		//runSum();
+		// runTemperatureConverter();
+		// runSum();
 		runBankAccountExample();
 	}
 
@@ -25,7 +25,7 @@ public class JavaPractice {
 			System.out.printf("sum from %d to %d : %d%n", startNum, endNum, sumValue);
 		}
 	}
-	
+
 	private static void runBankAccountExample() {
 		BankAccount ba = new BankAccount("123-456789", "ȫ�浿", 10000);
 		ba.printStatus();
