@@ -3,7 +3,7 @@ public class JavaPractice {
 
 	public static void main(String[] args) {
 		runTemperatureConverter();
-		runNextJob();
+		runSum();
 	}
 
 	private static void runTemperatureConverter() {
@@ -12,8 +12,16 @@ public class JavaPractice {
 		System.out.printf("celcius : %f%n", celciusValue);
 		System.out.printf("farenheit : %f%n", farenheitValue);
 	}
-	
-	private static void runNextJob() {
 
+	private static void runSum() {
+		int startNum = 1;
+		int endNum = 100;
+
+		long sumValue = Util.sumFromTo(startNum, endNum);
+		if (sumValue == -1) {
+			System.out.println("[E] 시작숫자가 끝숫자보다 큽니다.");
+		} else {
+			System.out.printf("sum from %d to %d : %d%n", startNum, endNum, sumValue);
+		}
 	}
 }
