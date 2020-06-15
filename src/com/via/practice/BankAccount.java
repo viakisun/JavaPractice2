@@ -1,5 +1,8 @@
 package com.via.practice;
 
+import java.text.NumberFormat;
+import java.util.Locale;
+
 /**
 * The BankAccount program implements an application that
 * can create bank account and deposit, withdraw money.
@@ -25,8 +28,8 @@ public class BankAccount {
 		
 		mAmount += amount;
 
-		String strFormat = "%d 원 입금합니다.%n";
-		System.out.printf(strFormat, amount);
+		String strFormat = "%s 원 입금합니다.%n";
+		System.out.printf(strFormat, convertToDecimalFormat(amount));
 
 		printAmount();
 		
@@ -39,21 +42,21 @@ public class BankAccount {
 		
 		mAmount -= amount;
 
-		String strFormat = "%d 원 출금합니다.%n";
-		System.out.printf(strFormat, amount);
+		String strFormat = "%s 원 출금합니다.%n";
+		System.out.printf(strFormat, convertToDecimalFormat(amount));
 
 		printAmount();
 		return true;
 	}
 
 	private void printAmount() {
-		String strFormat = "잔액: %d 원%n";
-		System.out.printf(strFormat, mAmount);
+		String strFormat = "잔액: %s 원%n";
+		System.out.printf(strFormat, convertToDecimalFormat(mAmount));
 	}
 
 	public void printStatus() {
-		String strFormat = "계좌 %s (예금주:%s)%n잔액: %d 원%n";
-		System.out.printf(strFormat, mAccount, mAccountHolder, mAmount);
+		String strFormat = "계좌 %s (예금주:%s)%n잔액: %s 원%n";
+		System.out.printf(strFormat, mAccount, mAccountHolder, convertToDecimalFormat(mAmount));
 	}
 	
 	private boolean isPositiveAmount(int amount)
@@ -74,5 +77,11 @@ public class BankAccount {
 		}
 		
 		return true;
+	}
+	
+	private String convertToDecimalFormat(int amount) {
+		NumberFormat nf = NumberFormat.getNumberInstance(Locale.KOREA);
+		nf.setMaximumFractionDigits(3);
+		return nf.format(amount);
 	}
 }
