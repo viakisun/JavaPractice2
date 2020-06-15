@@ -35,6 +35,7 @@ public class BankAccount {
 
 	public boolean withDraw(int amount) {
 		if (!isPositiveAmount(amount)) return false;
+		if (!canWithdraw(amount)) return false;
 		
 		mAmount -= amount;
 
@@ -59,6 +60,16 @@ public class BankAccount {
 	{
 		if (amount < 0) {
 			System.out.println("[에러] 금액은 음수를 입력할 수 없습니다.");
+			return false;
+		}
+		
+		return true;
+	}
+	
+	private boolean canWithdraw(int amount)
+	{
+		if (mAmount - amount < 0) {
+			System.out.println("에러메시지 : [에러] 잔액이 부족합니다.");
 			return false;
 		}
 		
