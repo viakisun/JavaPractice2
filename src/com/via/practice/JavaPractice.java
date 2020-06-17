@@ -28,9 +28,20 @@ public class JavaPractice {
 	}
 
 	private static void runBankAccountExample() {
-		BankAccount ba = new BankAccount("123-456789", "ȫ�浿", 10000);
-		ba.printStatus();
-		ba.deposit(20000);
-		ba.withDraw(45000);
+		BankAccountManager man = new BankAccountManager();
+
+		// SCAN
+		String account = "";
+		String holder = "";
+		int amount = 0;
+		
+		if (man.addAccount(account, holder, amount)) {
+			BankAccount ba = man.getAccount(account);
+			if (ba == null) return;
+			
+			ba.printStatus();
+			ba.deposit(20000);
+			ba.withDraw(45000);			
+		}
 	}
 }
