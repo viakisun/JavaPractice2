@@ -59,6 +59,10 @@ public class BankAccount {
 		System.out.printf(strFormat, mAccount, mAccountHolder, convertToDecimalFormat(mAmount));
 	}
 	
+	public String getAccountName() {
+		return mAccount;
+	}
+	
 	private boolean isPositiveAmount(int amount)
 	{
 		if (amount < 0) {
