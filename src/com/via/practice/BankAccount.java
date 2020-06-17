@@ -27,9 +27,7 @@ public class BankAccount {
 		if (!isPositiveAmount(amount)) return false;
 		
 		mAmount += amount;
-
-		String strFormat = "%s 원 입금합니다.%n";
-		System.out.printf(strFormat, convertToDecimalFormat(amount));
+		System.out.printf(CommonMessage.MSG_BANK_DEPOSIT, convertToDecimalFormat(amount));
 
 		printAmount();
 		
@@ -41,22 +39,18 @@ public class BankAccount {
 		if (!canWithdraw(amount)) return false;
 		
 		mAmount -= amount;
-
-		String strFormat = "%s 원 출금합니다.%n";
-		System.out.printf(strFormat, convertToDecimalFormat(amount));
+		System.out.printf(CommonMessage.MSG_BANK_WITHDRAW, convertToDecimalFormat(amount));
 
 		printAmount();
 		return true;
 	}
 
 	private void printAmount() {
-		String strFormat = "잔액: %s 원%n";
-		System.out.printf(strFormat, convertToDecimalFormat(mAmount));
+		System.out.printf(CommonMessage.MSG_BANK_AMOUNT, convertToDecimalFormat(mAmount));
 	}
 
 	public void printStatus() {
-		String strFormat = "계좌 %s (예금주:%s)%n잔액: %s 원%n";
-		System.out.printf(strFormat, mAccount, mAccountHolder, convertToDecimalFormat(mAmount));
+		System.out.printf(CommonMessage.MSG_BANK_STATUS, mAccount, mAccountHolder, convertToDecimalFormat(mAmount));
 	}
 	
 	public String getAccountName() {
@@ -66,7 +60,7 @@ public class BankAccount {
 	private boolean isPositiveAmount(int amount)
 	{
 		if (amount < 0) {
-			System.out.println("[에러] 금액은 음수를 입력할 수 없습니다.");
+			System.out.println(CommonMessage.MSG_BANK_ERROR_NEGATIVE);
 			return false;
 		}
 		
@@ -76,7 +70,7 @@ public class BankAccount {
 	private boolean canWithdraw(int amount)
 	{
 		if (mAmount - amount < 0) {
-			System.out.println("에러메시지 : [에러] 잔액이 부족합니다.");
+			System.out.println(CommonMessage.MSG_BANK_ERROR_NOT_ENOUGH);
 			return false;
 		}
 		

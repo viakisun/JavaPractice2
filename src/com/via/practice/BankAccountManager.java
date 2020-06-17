@@ -21,7 +21,7 @@ public class BankAccountManager {
 		// TODO:vincent : Check duplicated account
 		for (BankAccount ba : mBankAccounts) {
 			if (ba.getAccountName() == account)
-				System.out.println("error msg");
+				System.out.println(CommonMessage.MSG_BANK_ERROR_DUPLICATE);
 				return false;
 		}
 
