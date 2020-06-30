@@ -6,10 +6,14 @@ public class Item {
 	private int mItemCount;
 	private long mGUID;
 
-	public Item(String name, int itemCode, int guid, int itemCount) {
+	public Item(String name, int itemCode, long guid, int itemCount) {
 		mName = name;
 		mItemCode = itemCode;
 		mGUID = guid;
 		mItemCount = itemCount;
+	}
+	
+	public static Item createItem(String name, int itemCode, long guid, int itemCount) {
+		return new Item(name, itemCode, guid, itemCount);
 	}
 }
