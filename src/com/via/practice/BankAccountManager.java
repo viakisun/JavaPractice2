@@ -4,17 +4,11 @@ import java.util.ArrayList;
 import java.util.Dictionary;
 import java.util.Hashtable;
 
-//TODO:vincent : Use ArrayList
-//TODO:vincent : Use Dictionary
-
 public class BankAccountManager {
-	// private BankAccount[] mBankAccounts = new BankAccount[100];
 	private ArrayList<BankAccount> mBankAccounts;
-	// private Dictionary mBankDic;
 
 	public BankAccountManager() {
 		mBankAccounts = new ArrayList<BankAccount>();
-		// mBankDic = new Hashtable();
 	}
 
 	public boolean addAccount(String account, String holder, int amount) {
