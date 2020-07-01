@@ -15,6 +15,9 @@ public class Character {
 	private ItemManager mItemManager;
 
 	public Character(String name, long guid) {
+		
+		// 캐릭터 중복 체크
+		
 		mName = name;
 		mLevel = 1;
 		mItems = new ArrayList<Item>();
