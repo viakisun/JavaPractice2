@@ -16,7 +16,7 @@ public class Character {
 
 	public Character(String name, long guid) {
 		
-		// Ä³¸¯ÅÍ Áßº¹ Ã¼Å©
+		// ìºë¦­í„° ì¤‘ë³µ ì²´í¬
 		
 		mName = name;
 		mLevel = 1;
